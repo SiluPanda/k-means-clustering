@@ -1,2 +1,2 @@
 # k-means-clustering
-Implemetation of K-means clustring from scratch, image compression and decompression and analysis
+Implementation of K-means clustering from scratch, image compression and decompression and analysis
