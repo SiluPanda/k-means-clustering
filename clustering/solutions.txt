@@ -1,0 +1,54 @@
+Name: Silu Panda
+Roll number: 150050024
+========================================
+
+
+================
+     TASK 2
+================
+
+
+1. Run your code on datasets/garden.csv, with different values of k. Looking at the performance plots, does the SSE of k-means algorithm ever increase as the iterations are made? (1 mark)
+Answer: No, SSE never inrease with iteration because the algorithm is designed in a way that it goes forward only when there is a better (tighter) clustering. This follows form the proof of convergence we have done in classnote.
+
+3. Look at the files 3lines.png and mouse.png. Manually draw cluster boundaries around the 3 clusters visible in each file (no need to submit the hand drawn clusters). Test the k-means algorithm on the datasets datasets/3lines.csv and datasets/mouse.csv. How does the algorithm’s clustering compare with the clustering you would do by hand? Why do you think this happens? (1 mark)
+Answer: The algorthm does it better because as we are k-means algorithm to cluster, it does not much care about outliers unlike the hand drawn.
+
+
+
+================
+     TASK 3
+================
+
+1. For each dataset, with kmeansplusplus initialization algorithm, report “average SSE” and "average iterations". Explain the results. (2 mark)
+Answer:
+
+Dataset     |  Initialization | Average SSE  | Average Iterations
+==================================================================
+   100.csv  |        forgy    |8472.63311469| 2.43
+   100.csv  |        kmeans++ |8472.63311469| 2.0
+  1000.csv  |        forgy    |21337462.2968| 3.28
+  1000.csv  |        kmeans++ |19887301.0042| 3.16
+ 10000.csv  |        forgy    |168842238.612| 21.1
+ 10000.csv  |        kmeans++ |22323178.8625| 7.5
+
+In k means++, As we are using distance from the existing cluster centroids as a weight metric to pick next cluster centroids during iniliazation, it is more likely that we do not choose points which are very near ti each other initially which results in more number of updations (iterations). Hence the average iteration for k means++ is lower than forgy.
+Also, as the initailization 
+
+================
+  TASK 4
+================
+
+1. Can you observe from the visualization that k-medians algorithm is more robust to outliers as compared to k-means? Why do you think this happens? (1.5 marks)
+Answer: Yes,this happens because mean takes intgo account the outliers where as median 
+
+================
+  TASK 8
+================
+
+1. What do you observe as we reduce the number of clusters (k)? Answer in reference to the quality of decompressed image. (0.5 mark)
+Answer:
+
+
+2. You can observe that for the small number of clusters, the degree of compression (original size/compressed size) is about the same as that of when we use larger number of clusters even though we need to store lesser number of colors. Can you tell why? How can we increase this ratio in case of smaller number of clusters? [1 mark]
+Answer: 
