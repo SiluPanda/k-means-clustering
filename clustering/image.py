@@ -2,9 +2,7 @@ from array import array
 from cluster import distance_euclidean as distance
 import argparse
 
-########################################################################
-#                              Task 5                                  #
-########################################################################
+
 
 
 def read_image(filename):
@@ -17,7 +15,7 @@ def read_image(filename):
 	[Empty grayscale image as 2D list] -- img = [[0 for _ in range(width)] for _ in range(height)]
 	'''
 	
-	# todo: task5
+	
 	# Here you need to read the file, and convert the data into a 3D or 2D list depending on the image type.
 	# If first 2 bytes of the file are 'P6', it's an RGB image and if first 2 bytes are 'P5', it's a grayscale image.
 	# After that, there are 2 numbers written as strings which correspond to the width and height of the image
@@ -68,8 +66,7 @@ def preprocess_image(img):
 	Returns data - a list of datapoints where each datapoint is a tuple
 	'''
 	
-	# todo: task5
-	# You need to convert the image such that data is a list of datapoints on which you want to do clustering and each datapoint in the list is a 3-tuple with RGB values.
+	
 	data = []
 
 	for i in range(len(img)):
@@ -78,9 +75,7 @@ def preprocess_image(img):
 	return data
 
 
-########################################################################
-#                              Task 6                                  #
-########################################################################
+
 
 
 def label_image(img, cluster_centroids):
@@ -93,8 +88,7 @@ def label_image(img, cluster_centroids):
 
 	
 
-	# todo: task6
-	# Iterate over the image pixels and replace each pixel value with cluster number corresponding to its nearest cluster centroid
+	
 
 	data = preprocess_image(img)
 	categorizing_points = []
@@ -125,13 +119,7 @@ def write_image(filename, img):
 
 	File format: PPM image if img is rgb and PGM if image is grayscale
 	'''
-	# todo: task6
-	# Create a new file with the given file name (assume filename already includes extension).
-	# First line in the file should contain the format code - P5 for grayscale (PGM) and P6 for RGB (PPM)
-	# Next line should contain the width and height of the image in format - width height
-	# Next line should contain the maximum value of any pixel in the image (use max function to find it). Note that this should be an integer and within (0-255)
-	# Next line onwards should contain the actual image content as per the binary PPM or PGM file format.
-
+	
 	type_of_image = ""
 	all_e = []
 	d = ""
@@ -167,9 +155,7 @@ def write_image(filename, img):
 	pass
 
 
-########################################################################
-#                              Task 7                                  #
-########################################################################
+
 
 
 def decompress_image(cluster_labels, cluster_centroids):
@@ -182,9 +168,7 @@ def decompress_image(cluster_labels, cluster_centroids):
 	'''
 
 	img = []
-	# todo: task7
-	# Iterate over the 2D list's elements and replace each value (cluster label) with value of its corresponding cluster centroid
-	# Use distance function (using distance from cluster.py to find the nearest cluster)
+	
 	h = len(cluster_labels)
 	w = len(cluster_labels[0])
 	for i in range(h):
@@ -198,9 +182,7 @@ def decompress_image(cluster_labels, cluster_centroids):
 	return img
 
 
-########################################################################
-#                       DO NOT EDIT THE FOLLWOING                      #
-########################################################################
+
 
 
 def readfile(filename):
