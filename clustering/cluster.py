@@ -9,9 +9,7 @@ import math
 
 
 
-########################################################################
-#                              Task 1                                  #
-########################################################################
+
 
 
 def distance_euclidean(p1, p2):
@@ -24,10 +22,7 @@ def distance_euclidean(p1, p2):
 
 	distance = None
 
-	# TODO [task1]:
-	# Your function must work for all sized tuples.
-
-	########################################
+	
 	sqrd_sum = 0.0
 	for i in range(len(p1)):
 		sqrd_sum += (p1[i] - p2[i])**2
@@ -46,10 +41,7 @@ def initialization_forgy(data, k):
 
 	centroids = []
 
-	# TODO [task1]:
-	# Initialize the cluster centroids by sampling k unique datapoints from data
-
-	########################################
+	
 	indexes = random.sample(range(len(data)), k)
 	for i in indexes:
 		centroids.append(data[i])
@@ -70,9 +62,7 @@ def kmeans_iteration_one(data, centroids, distance):
 	new_centroids = deepcopy(centroids)
 
 
-	# TODO [task1]:
-	# You must find the new cluster centroids.
-	# Perform just 1 iteration (assignment+updation) of k-means algorithm.
+	
 
 	########################################
 	categorizing_points = []
@@ -123,10 +113,7 @@ def hasconverged(old_centroids, new_centroids, epsilon=1e-1):
 
 	converged = True
 
-	# TODO [task1]:
-	# Use Euclidean distance to measure centroid displacements.
-
-	########################################
+	
 	for i in range(len(old_centroids)):
 		if distance_euclidean(old_centroids[i], new_centroids[i]) > epsilon:
 			converged = False
@@ -151,13 +138,7 @@ def iteration_many(data, centroids, distance, maxiter, algorithm, epsilon=1e-1):
 	all_centroids.append(centroids)
 
 
-	# TODO [task1]:
-	# Perform iterations by calling the iteration_one function multiple times. Make sure to pass the algorithm argument to iteration_one (already defined).
-	# Stop only if convergence is reached, or if max iterations have been exhausted.
-	# Save the results of each iteration in all_centroids.
-	# Tip: use deepcopy() if you run into weirdness.
-
-	########################################
+	
 	for i in range(maxiter):
 			
 		old_cen = all_centroids[-1]
@@ -182,11 +163,7 @@ def performance_SSE(data, centroids, distance):
 
 	sse = 0.0
 
-	# TODO [task1]:
-	# Calculate the Sum Squared Error of the clustering represented by centroids, on the data.
-	# Make sure to use the distance metric provided.
-
-	########################################
+	
 	categorizing_points = []
 	for i in range(len(centroids)):
 		categorizing_points.append([])
@@ -205,9 +182,7 @@ def performance_SSE(data, centroids, distance):
 	return sse
 
 
-########################################################################
-#                              Task 3                                  #
-########################################################################
+
 
 
 def initialization_kmeansplusplus(data, distance, k):
@@ -221,13 +196,7 @@ def initialization_kmeansplusplus(data, distance, k):
 
 	centroids = []
 
-	# TODO [task3]:
-	# Use the kmeans++ algorithm to initialize k cluster centroids.
-	# Make sure you use the distance function given as parameter.
-
-	# NOTE: Provide extensive comments with your code.
-
-	########################################
+	
 	new_data = deepcopy(data)
 
 	def distance_from_nearest_cluster(data_point, cluster_centroids, distance):
@@ -303,9 +272,7 @@ def initialization_kmeansplusplus(data, distance, k):
 	return centroids
 
 
-########################################################################
-#                              Task 4                                  #
-########################################################################
+
 
 
 def distance_manhattan(p1, p2):
@@ -322,10 +289,7 @@ def distance_manhattan(p1, p2):
 
 	distance = None
 
-	# TODO [task4]:
-	# Your function must work for all sized tuples.
-
-	########################################
+	
 	d = 0.0
 	for i in range(len(p1)):
 		d += abs(p1[i] - p2[i])
@@ -345,11 +309,7 @@ def kmedians_iteration_one(data, centroids, distance):
 
 	new_centroids = deepcopy(centroids)
 
-	# TODO [task4]:
-	# You must find the new cluster centroids.
-	# Perform just 1 iteration (assignment+updation) of k-medians algorithm.
-
-	########################################
+	
 	def sum_tuples(tuple1, tuple2):
 		l = []
 		size = len(tuple2)
@@ -412,11 +372,7 @@ def performance_L1(data, centroids, distance):
 
 	l1_error = 0.0
 
-	# TODO [task4]:
-	# Calculate the L1-norm error of the clustering represented by centroids, on the data.
-	# Make sure to use the distance metric provided.
-
-	########################################
+	
 	categorizing_points = []
 	for i in range(len(centroids)):
 		categorizing_points.append([])
@@ -436,9 +392,7 @@ def performance_L1(data, centroids, distance):
 	return l1_error
 
 
-########################################################################
-#                       DO NOT EDIT THE FOLLWOING                      #
-########################################################################
+
 
 
 def argmin(values):
